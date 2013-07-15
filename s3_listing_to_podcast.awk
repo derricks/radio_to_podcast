@@ -43,12 +43,13 @@ BEGIN {
   url = substr($0, index($0,$4)) # get the last n fields
   split(url,url_components,"/")
   file = url_components[4]
+  directory = url_components[3]
   
   print "<title>" file "</title>"
   print "<link>" url "</link>"
   print "<guid>" url "</guid>"
   print "<description>" line_date "</description>"
-  print "<enclosure url=\"" url "\" length=\"" size "\" type=\"audio/mpeg\"/>"
+  print "<enclosure url=\"http://s3.amazonaws.com/" directory "/" file "\" length=\"" size "\" type=\"audio/mpeg\"/>"
   print "<category>Podcasts</category>"
   print "<pubDate>" line_date " -0000</pubDate>"
   print "</item>"
