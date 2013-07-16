@@ -13,7 +13,7 @@ args = parser.parse_args()
 # load config
 schedules = load_yaml(args.config_file)['schedules']
 
-log_msg = "Streamripper is running")
+log_msg = "Streamripper is running"
 if should_be_running(schedules) and is_not_running():
    start(get_current_schedule(schedules))
    syslog(LOG_INFO, log_msg)
