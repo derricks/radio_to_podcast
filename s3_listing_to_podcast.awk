@@ -11,7 +11,7 @@ BEGIN {
 
   print "<title>My Radio Podcast</title>"
   print "<description>Slurped internet radio</description>"
-  print "<link>http://dfsradiopodcast.s3-website-us-east-1.amazonaws.com</link>"
+  print "<link>http://programmingobsession.blogspot.com</link>"
   print "<language>en-us</language>"
   print "<copyright>Copyright 2013</copyright>"
   print "<lastBuildDate>" d "</lastBuildDate>"
