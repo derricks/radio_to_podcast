@@ -22,6 +22,9 @@ BEGIN {
 !/podcast\.xml/ {
   print "<item>"
   line_date = $1" "$2
+  date_cmd = "date -d \" " $1 " " $2 " -0000\" -R"
+  date_cmd | getline item_date
+  close(date_cmd)
   size = $3
   url = substr($0, index($0,$4)) # get the last n fields
   split(url,url_components,"/")
@@ -34,7 +37,8 @@ BEGIN {
   print "<description>" line_date "</description>"
   print "<enclosure url=\"http://s3.amazonaws.com/" directory "/" file "\" length=\"" size "\" type=\"audio/mpeg\"/>"
   print "<category>Podcasts</category>"
-  print "<pubDate>" line_date " -0000</pubDate>"
+  
+  print "<pubDate>" item_date "</pubDate>"
   print "</item>"
 }
 
